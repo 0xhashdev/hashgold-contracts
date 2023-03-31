@@ -1,0 +1,21 @@
+{
+    "name": "custom-token-bridging",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "hardhat compile",
+        "deploy-testnet": "hardhat run scripts/deploy-testnet.js",
+        "deploy-dummyl2": "hardhat run scripts/deploy-dummyl2.js"
+    },
+    "devDependencies": {
+        "@arbitrum/token-bridge-contracts": "^1.0.0-beta.0",
+        "@nomiclabs/hardhat-ethers": "^2.0.2",
+        "chai": "^4.3.4",
+        "ethers": "^5.1.2",
+        "hardhat": "^2.6.6",
+        "node-fetch": "^2.6.6"
+    },
+    "dependencies": {
+        "@arbitrum/sdk": "^v3.0.0",
+        "dotenv": "^8.2.0"
+    }
+}

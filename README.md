@@ -1,0 +1,2 @@
+# hashgold-contracts
+Hashgold Contracts
