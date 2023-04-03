@@ -46,11 +46,11 @@ console.log("L1 Wallet Address:", l1Wallet.address)
 console.log("L2 Wallet Address:", l2Wallet.address)
 
 const main = async () => {
-  const network = 'goerli';
-  const res = await fetch(`https://api.owlracle.info/v3/${ network }/gas?`);
-  const data = await res.json();
+  // const network = 'goerli';
+  // const res = await fetch(`https://api.owlracle.info/v3/${ network }/gas?`);
+  // const data = await res.json();
 
-  console.log(`WARNING: gas fee on ${network} is between ${data.speeds[0].baseFee} - ${data.speeds[data.speeds.length-1].baseFee} GWei`)
+  // console.log(`WARNING: gas fee on ${network} is between ${data.speeds[0].baseFee} - ${data.speeds[data.speeds.length-1].baseFee} GWei`)
 
   /**
    * Use l2Network to create an Arbitrum SDK AdminErc20Bridger instance
@@ -122,46 +122,46 @@ const main = async () => {
    * Deploy our custom token smart contract to L1
    * We give the custom token contract the address of l1CustomGateway and l1GatewayRouter
    */
-  const L1CustomToken = await (
-    await ethers.getContractFactory('L1Token')
+  const L1TestnetHashgold = await (
+    await ethers.getContractFactory('L1TestnetHashgold')
   ).connect(l1Wallet)
 
   console.log('Deploying custom token to L1', {
     "l1Gateway": l1Gateway, 
     "l1Router": l1Router
   })
-  const l1CustomToken = await L1CustomToken.deploy(l1Gateway, l1Router)
-  await l1CustomToken.deployed()
+  const l1Token = await L1TestnetHashgold.deploy(l1Gateway, l1Router)
+  await l1Token.deployed()
 
-  console.log(`Custom token is deployed to L1. Check ${process.env.TESTNET_L1_EXPLORER}/address/${l1CustomToken.address}`)
+  console.log(`Custom token is deployed to L1. Check ${process.env.TESTNET_L1_EXPLORER}/address/${l1Token.address}`)
 
   /**
    * Deploy our custom token smart contract to L2
-   * We give the custom token contract the address of l2CustomGateway and our l1CustomToken
+   * We give the custom token contract the address of l2CustomGateway and our l1Token
    */
-  const L2CustomToken = await (
-    await ethers.getContractFactory('L2Token')
+  const L2TestnetHashgold = await (
+    await ethers.getContractFactory('L2TestnetHashgold')
   ).connect(l2Wallet)
 
   console.log('Deploying custom token to L2', {
     "l2Gateway": l2Gateway,
-    "l1CustomToken.address": l1CustomToken.address
+    "l1Token.address": l1Token.address
   })
-  const l2CustomToken = await L2CustomToken.deploy(
+  const l2Token = await L2TestnetHashgold.deploy(
     l2Gateway,
-    l1CustomToken.address
+    l1Token.address
   )
-  await l2CustomToken.deployed()
+  await l2Token.deployed()
 
-  console.log(`Custom token is deployed to L2. Check ${process.env.TESTNET_L2_EXPLORER}/address/${l2CustomToken.address}`)
+  console.log(`Custom token is deployed to L2. Check ${process.env.TESTNET_L2_EXPLORER}/address/${l2Token.address}`)
 
   console.log('Registering custom token on L2:')
   /**
    * ٍRegister custom token on our custom gateway
    */
   const registerTokenTxL2 = await adminTokenBridger.registerCustomToken(
-    l1CustomToken.address,
-    l2CustomToken.address,
+    l1Token.address,
+    l2Token.address,
     l1Wallet,
     l2Provider
   )
@@ -197,20 +197,20 @@ const main = async () => {
 
   const L1GatewayAddressOnL1Router = await (new ethers.Contract(l2Network.tokenBridge.l1GatewayRouter.address, 
     ["function getGateway(address _token) returns (address)"] )
-  ).getGateway(l1CustomToken.address) // Should be equal to l1CustomGateway.address
+  ).getGateway(l1Token.address) // Should be equal to l1CustomGateway.address
   console.log(`L1GatewayAddressOnL1Router is ${L1GatewayAddressOnL1Router}, should be equal to ${l1CustomGateway.address}`);
 
 
   const L2GatewayAddressOnL2Router = await (new ethers.Contract(l2Network.tokenBridge.l2GatewayRouter.address, 
     ["function getGateway(address _token) returns (address)"] )
-  ).getGateway(l1CustomToken.address) // Should be equal to l2CustomGateway.address
+  ).getGateway(l1Token.address) // Should be equal to l2CustomGateway.address
   console.log(`L2GatewayAddressOnL2Router is ${L2GatewayAddressOnL2Router}, should be equal to ${l2CustomGateway.address}`);
 
-  const l2TokenAddressOnL1Gateway = await l1CustomGateway.calculateL2TokenAddress(l1CustomToken.address) 
-  console.log(`l2AddressOnL1Gateway is ${l2TokenAddressOnL1Gateway}, should be equal to ${l2CustomToken.address}`);
+  const l2TokenAddressOnL1Gateway = await l1CustomGateway.calculateL2TokenAddress(l1Token.address) 
+  console.log(`l2AddressOnL1Gateway is ${l2TokenAddressOnL1Gateway}, should be equal to ${l2Token.address}`);
 
-  const l1TokenAddressOnL2Gateway = await l2CustomGateway.calculateL2TokenAddress(l2CustomToken.address)
-  console.log(`l1AddressOnL1Gateway is ${l1TokenAddressOnL2Gateway}, should be equal to ${l1CustomToken.address}`);
+  const l1TokenAddressOnL2Gateway = await l2CustomGateway.calculateL2TokenAddress(l2Token.address)
+  console.log(`l1AddressOnL1Gateway is ${l1TokenAddressOnL2Gateway}, should be equal to ${l1Token.address}`);
 
   console.log(
     'Your custom token is now registered on our custom gateway 🥳  Go ahead and make the deposit!'

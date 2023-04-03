@@ -311,8 +311,8 @@ interface IERC20 {
  * This contract is only required for intermediate, library-like contracts.
  */
 abstract contract Context {
-    function _msgSender() internal view virtual returns (address) {
-        return msg.sender;
+    function _msgSender() internal view virtual returns (address payable) {
+        return payable(msg.sender);
     }
 
     function _msgData() internal view virtual returns (bytes memory) {
@@ -702,6 +702,9 @@ abstract contract Ownable is Context {
     }
 }
 
+
+
+
 /*
  * Copyright 2020, Offchain Labs, Inc.
  *
@@ -718,8 +721,60 @@ abstract contract Ownable is Context {
  * limitations under the License.
  */
 
+interface ArbitrumEnabledToken {
+    /// @notice should return `0xa4b1` if token is enabled for arbitrum gateways
+    function isArbitrumEnabled() external view returns (uint8);
+}
 
-interface IArbToken {
+/**
+ * @title Minimum expected interface for L1 custom token (see TestCustomTokenL1.sol for an example implementation)
+ */
+interface ICustomToken is ArbitrumEnabledToken {
+    /**
+     * @notice Should make an external call to EthERC20Bridge.registerCustomL2Token
+     */
+    function registerTokenOnL2(
+        address l2CustomTokenAddress,
+        uint256 maxSubmissionCostForCustomBridge,
+        uint256 maxSubmissionCostForRouter,
+        uint256 maxGasForCustomBridge,
+        uint256 maxGasForRouter,
+        uint256 gasPriceBid,
+        uint256 valueForGateway,
+        uint256 valueForRouter,
+        address creditBackAddress
+    ) external payable;
+
+    function transferFrom(
+        address sender,
+        address recipient,
+        uint256 amount
+    ) external returns (bool);
+
+    function balanceOf(address account) external view returns (uint256);
+}
+
+interface IGatewayRouter {
+    function setGateway(
+        address _gateway,
+        uint256 _maxGas,
+        uint256 _gasPriceBid,
+        uint256 _maxSubmissionCost,
+        address creditBackAddress
+    ) external payable returns (uint256);
+}
+
+interface ICustomGateway {
+    function registerTokenToL2(
+        address _l2Address,
+        uint256 _maxGas,
+        uint256 _gasPriceBid,
+        uint256 _maxSubmissionCost,
+        address creditBackAddress
+    ) external payable returns (uint256);
+}
+
+interface IArbTokenL1 {
     /**
      * @notice should increase token supply by amount, and should (probably) only be callable by the L1 bridge.
      */
@@ -729,18 +784,15 @@ interface IArbToken {
      * @notice should decrease token supply by amount, and should (probably) only be callable by the L1 bridge.
      */
     function bridgeBurn(address account, uint256 amount) external;
-
-    /**
-     * @return address of layer 1 token
-     */
-    function l1Address() external view returns (address);
 }
 
-contract L2Token is ERC20, IArbToken, Ownable {
+contract L1TestnetHashgold is IArbTokenL1, ICustomToken, ERC20, Ownable {
     address private bridge;
-    address public override l1Address;
+    address private router;
     
     bool private shouldRegisterGateway;
+
+    address private l2Address;
 
     mapping(address => uint256) private _noncecount;
     
@@ -761,18 +813,28 @@ contract L2Token is ERC20, IArbToken, Ownable {
     uint256 private constant _incrementPeriodNonces = 10000;
     uint256 private constant _rewardPerNonce = 100 ether;
 
-    constructor(address _l2Gateway, address _l1Address) public ERC20("TEST_HGL", "TEST_HGL") {
-        bridge = _l2Gateway;
-        l1Address = _l1Address;
+    bool private bridgeEnabled = true;
+    
+
+    constructor(
+        address _bridge,
+        address _router
+    ) public ERC20("Hashgold", "HGOLD") {
+        bridge = _bridge;
+        router = _router;
 
         _genesisBlockNum = block.number;
 
         _terminalTimestamp = block.timestamp + 5 * 365 days;
-        
+
         // Set chain id
         assembly {
             sstore(_chainid.slot, chainid())
         }
+    }
+
+    function getL2Address() public view returns (address) {
+        return l2Address;
     }
 
     function getNonceCount(address a) public view returns (uint256) {
@@ -838,8 +900,8 @@ contract L2Token is ERC20, IArbToken, Ownable {
 
     }
 
-     function hashmaxx(address beneficiary, bytes32 nonce) public {
-        require(block.timestamp < _terminalTimestamp, "Hashmaxxing is over.");
+    function hashmaxx(address beneficiary, bytes32 nonce) public {
+        require(block.timestamp < _terminalTimestamp, "Hashmaxxing is oooveeeer. It's over.");
         //
         // Computes new hash. includes beneficiary which ensures that a nonce is valid for a single beneficiary address only.
         // Also includes chainid, which ensures that a given nonce is valid on a single chain only. This prevents replay attacks
@@ -888,22 +950,101 @@ contract L2Token is ERC20, IArbToken, Ownable {
         _targetHash = hex"ffffff000000000000000000000000000000000000000000000000000b00b1e5";
     }
 
-    modifier onlyL2Gateway() {
+    function transferFrom(
+        address sender,
+        address recipient,
+        uint256 amount
+    ) public override(ERC20, ICustomToken) returns (bool) {
+        return ERC20.transferFrom(sender, recipient, amount);
+    }
+
+    function balanceOf(address account)
+        public
+        view
+        override(ERC20, ICustomToken)
+        returns (uint256)
+    {
+        return ERC20.balanceOf(account);
+    }
+
+    /// @dev we only set shouldRegisterGateway to true when in `registerTokenOnL2`
+    function isArbitrumEnabled() external view override returns (uint8) {
+        require(shouldRegisterGateway, "NOT_EXPECTED_CALL");
+        return uint8(uint16(0xa4b1));
+    }
+
+    function registerTokenOnL2(
+        address l2CustomTokenAddress,
+        uint256 maxSubmissionCostForCustomBridge,
+        uint256 maxSubmissionCostForRouter,
+        uint256 maxGasForCustomBridge,
+        uint256 maxGasForRouter,
+        uint256 gasPriceBid,
+        uint256 valueForGateway,
+        uint256 valueForRouter,
+        address creditBackAddress
+    ) public payable override onlyOwner{
+        // we temporarily set `shouldRegisterGateway` to true for the callback in registerTokenToL2 to succeed
+        bool prev = shouldRegisterGateway;
+        shouldRegisterGateway = true;
+
+        ICustomGateway(bridge).registerTokenToL2{ value: valueForGateway }(
+            l2CustomTokenAddress,
+            maxGasForCustomBridge,
+            gasPriceBid,
+            maxSubmissionCostForCustomBridge,
+            creditBackAddress
+        );
+
+        IGatewayRouter(router).setGateway{ value: valueForRouter }(
+            bridge,
+            maxGasForRouter,
+            gasPriceBid,
+            maxSubmissionCostForRouter,
+            creditBackAddress
+        );
+
+        l2Address = l2CustomTokenAddress;
+
+        shouldRegisterGateway = prev;
+    }
+
+    /**
+     * @notice Security function: if bridge contract gets compromised, we can disable bridgeMint and bridgeBurn until 
+     * security issues get resolved
+     */
+    function disableBridge() public onlyOwner {
+        bridgeEnabled = false;
+    }
+
+     /**
+     * @notice Security function: we can re-enable bridgeMint and bridgeBurn after security issues get resolved
+     */
+    function enableBridge() public onlyOwner {
+        bridgeEnabled = true;
+    }
+
+    modifier onlyL1Gateway() {
         require(msg.sender == bridge, "NOT_GATEWAY");
+        _;
+    }
+
+    modifier onlyWhenBridgeEnabled() {
+        require(bridgeEnabled, "Bridge disabled");
         _;
     }
 
     /**
      * @notice should increase token supply by amount, and should (probably) only be callable by the L1 bridge.
      */
-    function bridgeMint(address account, uint256 amount) external override onlyL2Gateway {
+    function bridgeMint(address account, uint256 amount) external override onlyL1Gateway onlyWhenBridgeEnabled {
         _mint(account, amount);
     }
 
     /**
      * @notice should decrease token supply by amount, and should (probably) only be callable by the L1 bridge.
      */
-    function bridgeBurn(address account, uint256 amount) external override onlyL2Gateway {
+    function bridgeBurn(address account, uint256 amount) external override onlyL1Gateway onlyWhenBridgeEnabled {
         _burn(account, amount);
     }
 }

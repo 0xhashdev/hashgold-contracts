@@ -1,4 +1,5 @@
 require('@nomiclabs/hardhat-ethers')
+require('@nomiclabs/hardhat-etherscan')
 require('dotenv').config()
 module.exports = {
   solidity: {
@@ -87,4 +88,10 @@ module.exports = {
         : [],
     },
   },
+  etherscan : {
+    apiKey : {
+      goerli: process.env['ETHERSCAN_API_KEY'],
+      arbitrumGoerli: process.env['ARBISCAN_API_KEY']
+    }
+  }
 }

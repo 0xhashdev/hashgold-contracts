@@ -3,12 +3,13 @@
     "version": "1.0.0",
     "scripts": {
         "build": "hardhat compile",
-        "deploy-testnet": "hardhat run scripts/deploy-testnet.js",
-        "deploy-dummyl2": "hardhat run scripts/deploy-dummyl2.js"
+        "deploy-testnet": "datetime=$(date '+%Y-%m-%d_%H:%M:%S'); hardhat run scripts/deploy-testnet.js >>  ./logs/\"deploy-testnet-${datetime}.log\"  2>&1",
+        "deploy-dummyl2": "datetime=$(date '+%Y-%m-%d_%H:%M:%S'); hardhat run scripts/deploy-dummyl2.js >> ./logs/\"deploy-dummyl2-${datetime}.log\"  2>&1"
     },
     "devDependencies": {
         "@arbitrum/token-bridge-contracts": "^1.0.0-beta.0",
         "@nomiclabs/hardhat-ethers": "^2.0.2",
+        "@nomiclabs/hardhat-etherscan": "^3.1.7",
         "chai": "^4.3.4",
         "ethers": "^5.1.2",
         "hardhat": "^2.6.6",
