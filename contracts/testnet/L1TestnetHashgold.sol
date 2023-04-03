@@ -3,11 +3,11 @@ pragma solidity 0.7.2;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-import "./ICustomGateway.sol";
-import "./ICustomToken.sol";
-import "./IGatewayRouter.sol";
+import "../ICustomGateway.sol";
+import "../ICustomToken.sol";
+import "../IGatewayRouter.sol";
 
-import "./IArbTokenL1.sol";
+import "../IArbTokenL1.sol";
 
 contract L1TestnetHashgold is IArbTokenL1, ICustomToken, ERC20, Ownable {
     address private bridge;

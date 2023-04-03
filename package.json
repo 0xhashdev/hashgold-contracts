@@ -1,9 +1,10 @@
 {
-    "name": "custom-token-bridging",
+    "name": "hashgold-contracts",
     "version": "1.0.0",
     "scripts": {
         "build": "hardhat compile",
-        "deploy-testnet": "datetime=$(date '+%Y-%m-%d_%H:%M:%S'); hardhat run scripts/deploy-testnet.js >>  ./logs/\"deploy-testnet-${datetime}.log\"  2>&1"
+        "deploy-testnet": "datetime=$(date '+%Y-%m-%d_%H:%M:%S'); logfile=./logs/\"deploy-testnet-${datetime}.log\"; hardhat run scripts/deploy-testnet.js >> $logfile 2>&1",
+        "deploy-mainnet": "datetime=$(date '+%Y-%m-%d_%H:%M:%S'); logfile=./logs/\"deploy-mainnet-${datetime}.log\"; hardhat run scripts/deploy-mainnet.js >> $logfile 2>&1"
     },
     "devDependencies": {
         "@arbitrum/token-bridge-contracts": "^1.0.0-beta.0",
