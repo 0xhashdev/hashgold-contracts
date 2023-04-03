@@ -77,7 +77,7 @@ const main = async () => {
   const l2CustomGateway = await CustomL2Gateway.deploy()
   await l2CustomGateway.deployed()
 
-  console.log(`Custom gateway is deployed L2. Check ${process.env.TESTNET_L2_EXPLORER}/address/${l2CustomGateway.address}`)
+  console.log(`Custom gateway is deployed L2. Check ${process.env.MAINNET_L2_EXPLORER}/address/${l2CustomGateway.address}`)
 
   /**
    * Deploy our custom L1 gateway
@@ -99,7 +99,7 @@ const main = async () => {
   )
   await l1CustomGateway.deployed()
 
-  console.log(`Custom gateway is deployed L1. Check ${process.env.TESTNET_L1_EXPLORER}/address/${l1CustomGateway.address}`)
+  console.log(`Custom gateway is deployed L1. Check ${process.env.MAINNET_L1_EXPLORER}/address/${l1CustomGateway.address}`)
 
 
   // Initialize L2 custom gateway:
@@ -133,7 +133,7 @@ const main = async () => {
   const l1Token = await L1MainnetHashgold.deploy(l1Gateway, l1Router)
   await l1Token.deployed()
 
-  console.log(`Custom token is deployed to L1. Check ${process.env.TESTNET_L1_EXPLORER}/address/${l1Token.address}`)
+  console.log(`Custom token is deployed to L1. Check ${process.env.MAINNET_L1_EXPLORER}/address/${l1Token.address}`)
 
   /**
    * Deploy our custom token smart contract to L2
@@ -153,7 +153,7 @@ const main = async () => {
   )
   await l2Token.deployed()
 
-  console.log(`Custom token is deployed to L2. Check ${process.env.TESTNET_L2_EXPLORER}/address/${l2Token.address}`)
+  console.log(`Custom token is deployed to L2. Check ${process.env.MAINNET_L2_EXPLORER}/address/${l2Token.address}`)
 
   console.log('Registering custom token on L2:')
   /**
