@@ -23,7 +23,6 @@ import "@arbitrum/token-bridge-contracts/contracts/tokenbridge/ethereum/gateway/
 import "@arbitrum/token-bridge-contracts/contracts/tokenbridge/arbitrum/gateway/L2CustomGateway.sol";
 import "@arbitrum/token-bridge-contracts/contracts/tokenbridge/libraries/gateway/ICustomGateway.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
-// import "@arbitrum/token-bridge-contracts/contracts/tokenbridge/libraries/Whitelist.sol";
 
 interface IArbTokenL1 {
     /**

@@ -3,8 +3,7 @@
     "version": "1.0.0",
     "scripts": {
         "build": "hardhat compile",
-        "deploy-testnet": "datetime=$(date '+%Y-%m-%d_%H:%M:%S'); hardhat run scripts/deploy-testnet.js >>  ./logs/\"deploy-testnet-${datetime}.log\"  2>&1",
-        "deploy-dummyl2": "datetime=$(date '+%Y-%m-%d_%H:%M:%S'); hardhat run scripts/deploy-dummyl2.js >> ./logs/\"deploy-dummyl2-${datetime}.log\"  2>&1"
+        "deploy-testnet": "datetime=$(date '+%Y-%m-%d_%H:%M:%S'); hardhat run scripts/deploy-testnet.js >>  ./logs/\"deploy-testnet-${datetime}.log\"  2>&1"
     },
     "devDependencies": {
         "@arbitrum/token-bridge-contracts": "^1.0.0-beta.0",
