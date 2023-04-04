@@ -1,0 +1,240 @@
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> contracts/ArbitrumEnabledToken.sol
+
+
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> contracts/IArbTokenL1.sol
+
+
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> contracts/IArbTokenL2.sol
+
+
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> contracts/ICustomGateway.sol
+
+
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> contracts/ICustomToken.sol
+
+
+Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+--> contracts/IGatewayRouter.sol
+
+
+Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.8.17;"
+--> contracts/ArbitrumEnabledToken.sol
+
+
+Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.8.17;"
+--> contracts/IArbTokenL1.sol
+
+
+Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.8.17;"
+--> contracts/IArbTokenL2.sol
+
+
+Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.8.17;"
+--> contracts/ICustomGateway.sol
+
+
+Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.8.17;"
+--> contracts/ICustomToken.sol
+
+
+Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.8.17;"
+--> contracts/IGatewayRouter.sol
+
+
+contracts/ArbitrumEnabledToken.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+
+contracts/IArbTokenL1.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+
+contracts/IArbTokenL2.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+
+contracts/ICustomGateway.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+
+contracts/ICustomToken.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+
+contracts/IGatewayRouter.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+
+contracts/mainnet/L1MainnetHashgold.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+
+contracts/mainnet/L2MainnetHashgold.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+
+contracts/testnet/L1TestnetHashgold.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+
+contracts/testnet/L2TestnetHashgold.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing "SPDX-License-Identifier: <SPDX-License>" to each source file. Use "SPDX-License-Identifier: UNLICENSED" for non-open-source code. Please see https://spdx.org for more information.
+
+contracts/ArbitrumEnabledToken.sol: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.7.2;"
+
+contracts/IArbTokenL1.sol: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.7.2;"
+
+contracts/IArbTokenL2.sol: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.7.2;"
+
+contracts/ICustomGateway.sol: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.7.2;"
+
+contracts/ICustomToken.sol: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.7.2;"
+
+contracts/IGatewayRouter.sol: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.7.2;"
+
+@openzeppelin/contracts/access/Ownable.sol:26:5: Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+    constructor () internal {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+@openzeppelin/contracts/token/ERC20/ERC20.sol:55:5: Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+    constructor (string memory name_, string memory symbol_) public {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+contracts/mainnet/L1MainnetHashgold.sol:42:5: Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+    constructor(
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+contracts/mainnet/L2MainnetHashgold.sol:36:5: Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+    constructor(address _l2Gateway, address _l1Address) public ERC20("Hashgold", "HGOLD") {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+contracts/testnet/L1TestnetHashgold.sol:42:5: Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+    constructor(
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+contracts/testnet/L2TestnetHashgold.sol:36:5: Warning: Visibility for constructor is ignored. If you want the contract to be non-deployable, making it "abstract" is sufficient.
+    constructor(address _l2Gateway, address _l1Address) public ERC20("Hashgold", "HGOLD") {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+contracts/mainnet/L1MainnetHashgold.sol:83:5: Warning: Function state mutability can be restricted to pure
+    function getChainId() public returns (uint256 chainId) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+contracts/mainnet/L1MainnetHashgold.sol:89:5: Warning: Function state mutability can be restricted to view
+    function getChainIdHash() public returns (bytes32) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+contracts/mainnet/L2MainnetHashgold.sol:70:5: Warning: Function state mutability can be restricted to pure
+    function getChainId() public returns (uint256 chainId) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+contracts/mainnet/L2MainnetHashgold.sol:76:5: Warning: Function state mutability can be restricted to view
+    function getChainIdHash() public returns (bytes32) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+contracts/testnet/L1TestnetHashgold.sol:83:5: Warning: Function state mutability can be restricted to pure
+    function getChainId() public returns (uint256 chainId) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+contracts/testnet/L1TestnetHashgold.sol:89:5: Warning: Function state mutability can be restricted to view
+    function getChainIdHash() public returns (bytes32) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+contracts/testnet/L2TestnetHashgold.sol:70:5: Warning: Function state mutability can be restricted to pure
+    function getChainId() public returns (uint256 chainId) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+contracts/testnet/L2TestnetHashgold.sol:76:5: Warning: Function state mutability can be restricted to view
+    function getChainIdHash() public returns (bytes32) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+@arbitrum/token-bridge-contracts/contracts/tokenbridge/arbitrum/gateway/L2ArbitrumGateway.sol:64:5: Warning: Function state mutability can be restricted to view
+    function postUpgradeInit() external {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+@arbitrum/token-bridge-contracts/contracts/tokenbridge/ethereum/gateway/L1ArbitrumGateway.sol:79:5: Warning: Function state mutability can be restricted to view
+    function postUpgradeInit() external {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+@arbitrum/token-bridge-contracts/contracts/tokenbridge/ethereum/gateway/L1ArbitrumGateway.sol:131:5: Warning: Function state mutability can be restricted to pure
+    function getExternalCall(
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+Compiled 48 Solidity files successfully
+Environmental variables properly set 👍
+L1 Wallet Address: 0x3EBd1783cB0Eb9214f252A6A068Ea74970c30eE8
+L2 Wallet Address: 0x3EBd1783cB0Eb9214f252A6A068Ea74970c30eE8
+l1Network is: {
+  chainID: 1,
+  name: 'Mainnet',
+  explorerUrl: 'https://etherscan.io',
+  partnerChainIDs: [ 42161, 42170 ],
+  blockTime: 14,
+  isCustom: false,
+  isArbitrum: false
+}
+l2Network is: {
+  chainID: 42161,
+  name: 'Arbitrum One',
+  explorerUrl: 'https://arbiscan.io',
+  partnerChainID: 1,
+  isArbitrum: true,
+  tokenBridge: {
+    l1GatewayRouter: '0x72Ce9c846789fdB6fC1f34aC4AD25Dd9ef7031ef',
+    l2GatewayRouter: '0x5288c571Fd7aD117beA99bF60FE0846C4E84F933',
+    l1ERC20Gateway: '0xa3A7B6F88361F48403514059F1F16C8E78d60EeC',
+    l2ERC20Gateway: '0x09e9222E96E7B4AE2a407B98d48e330053351EEe',
+    l1CustomGateway: '0xcEe284F754E854890e311e3280b767F80797180d',
+    l2CustomGateway: '0x096760F208390250649E3e8763348E783AEF5562',
+    l1WethGateway: '0xd92023E9d9911199a6711321D1277285e6d4e2db',
+    l2WethGateway: '0x6c411aD3E74De3E7Bd422b94A27770f5B86C623B',
+    l2Weth: '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
+    l1Weth: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
+    l1ProxyAdmin: '0x9aD46fac0Cf7f790E5be05A0F15223935A0c0aDa',
+    l2ProxyAdmin: '0xd570aCE65C43af47101fC6250FD6fC63D1c22a86',
+    l1MultiCall: '0x5ba1e12693dc8f9c48aad8770482f4739beed696',
+    l2Multicall: '0x842eC2c7D803033Edf55E478F461FC547Bc54EB2'
+  },
+  ethBridge: {
+    bridge: '0x8315177aB297bA92A06054cE80a67Ed4DBd7ed3a',
+    inbox: '0x4Dbd4fc535Ac27206064B68FfCf827b0A60BAB3f',
+    sequencerInbox: '0x1c479675ad559DC151F6Ec7ed3FbF8ceE79582B6',
+    outbox: '0x0B9857ae2D4A3DBe74ffE1d7DF045bb7F96E4840',
+    rollup: '0x5eF0D09d1E6204141B4d37530808eD19f60FBa35',
+    classicOutboxes: {
+      '0x667e23ABd27E623c11d4CC00ca3EC4d0bD63337a': 0,
+      '0x760723CD2e632826c38Fef8CD438A4CC7E7E1A40': 30
+    }
+  },
+  confirmPeriodBlocks: 45818,
+  isCustom: false,
+  retryableLifetimeSeconds: 604800,
+  nitroGenesisBlock: 22207817,
+  nitroGenesisL1Block: 15447158,
+  depositTimeout: 888000
+}
+Deploying custom gateway to L2
+Custom gateway is deployed L2. Check https://arbiscan.io/address/0x7040876a31b4767fEA173E5cc04010f2CFB89Ff0
+Deploying custom gateway to L1 {
+  'l2CustomGateway.address': '0x7040876a31b4767fEA173E5cc04010f2CFB89Ff0',
+  'l2Network.tokenBridge.l1GatewayRouter': '0x72Ce9c846789fdB6fC1f34aC4AD25Dd9ef7031ef',
+  'l2Network.ethBridge.inbox': '0x4Dbd4fc535Ac27206064B68FfCf827b0A60BAB3f'
+}
+Custom gateway is deployed L1. Check https://etherscan.io/address/0x04bdBE0Bc4EdB62eA12070435ee67782bA292948
+Initializing L2 custom gateway.... {
+  'l1CustomGateway.address': '0x04bdBE0Bc4EdB62eA12070435ee67782bA292948',
+  'l2Network.tokenBridge.l2GatewayRouter': '0x5288c571Fd7aD117beA99bF60FE0846C4E84F933'
+}
+L2 Custom gateway initialized.
+Deploying custom token to L1 {
+  l1Gateway: '0x04bdBE0Bc4EdB62eA12070435ee67782bA292948',
+  l1Router: '0x72Ce9c846789fdB6fC1f34aC4AD25Dd9ef7031ef'
+}
+Custom token is deployed to L1. Check https://etherscan.io/address/0x445164D9E038e1dae0989E4b6Ac745B78d26F181
+Deploying custom token to L2 {
+  l2Gateway: '0x7040876a31b4767fEA173E5cc04010f2CFB89Ff0',
+  'l1Token.address': '0x445164D9E038e1dae0989E4b6Ac745B78d26F181'
+}
+Custom token is deployed to L2. Check https://arbiscan.io/address/0x445164D9E038e1dae0989E4b6Ac745B78d26F181
+Registering custom token on L2:
+Registering token txn confirmed on L1! 🙌 L1 receipt is: 0x24371101180a6e0fc2bf48a6d954958fef016b4dd4da130ae60193ee8aa76f69
+Error: invalid contract address or ENS name (argument="addressOrName", value=undefined, code=INVALID_ARGUMENT, version=contracts/5.7.0)
+    at Logger.makeError (/host/hashgold/hashgold-contracts/node_modules/@ethersproject/logger/src.ts/index.ts:269:28)
+    at Logger.throwError (/host/hashgold/hashgold-contracts/node_modules/@ethersproject/logger/src.ts/index.ts:281:20)
+    at Logger.throwArgumentError (/host/hashgold/hashgold-contracts/node_modules/@ethersproject/logger/src.ts/index.ts:285:21)
+    at Contract.BaseContract (/host/hashgold/hashgold-contracts/node_modules/@ethersproject/contracts/src.ts/index.ts:712:20)
+    at new Contract (/host/hashgold/hashgold-contracts/node_modules/@ethersproject/contracts/lib/index.js:1053:42)
+    at main (/host/hashgold/hashgold-contracts/scripts/deploy-mainnet.js:198:45)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  reason: 'invalid contract address or ENS name',
+  code: 'INVALID_ARGUMENT',
+  argument: 'addressOrName',
+  value: undefined
+}
